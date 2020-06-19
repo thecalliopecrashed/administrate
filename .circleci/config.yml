@@ -17,7 +17,7 @@ commands:
             - vendor/bundle
 
       # Install appraisal dependencies
-      - run: bundle exec appraisal install --path vendor/appraisal
+      - run: bundle exec appraisal install
 
       # Cache appraisal dependencies
       - save_cache:

@@ -6,11 +6,6 @@ commands:
     steps:
       - checkout
 
-      # Restore Cached Dependencies
-      - restore_cache:
-          name: Restore bundle cache
-          key: administrate-{{ checksum "Gemfile.lock" }}
-
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
 
@@ -20,11 +15,6 @@ commands:
           key: administrate-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
-      # Restore cached appraisal dependencies
-      - restore_cache:
-          name: Restore bundle cache
-          key: administrate-appraisal-{{ checksum "Gemfile.lock" }}
 
       # Install appraisal dependencies
       - run: bundle exec appraisal install --path vendor/appraisal
